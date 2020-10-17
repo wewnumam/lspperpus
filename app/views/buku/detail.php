@@ -9,7 +9,7 @@
           <a href="<?= BASEURL; ?>/buku" class="card-link">Kembali</a>
           <?php if(isset($_SESSION['login'])): ?>
           <?php if($_SESSION['username'] == 'admin'): ?>
-          <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id']; ?>" class="card-link text-danger float-right"
+          <a href="<?= BASEURL; ?>/buku/hapus/<?= $data['buku']['id']; ?>" class="card-link text-danger float-right"
             onclick="return confirm('yakin?');">Hapus</a>
           <?php endif ?>
           <?php endif ?>
@@ -22,8 +22,8 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-body">
-          <form action="<?= BASEURL; ?>/buku/tambah" method="post">
-            <input type="hidden" name="id" id="id">
+          <form action="<?= BASEURL; ?>/buku/ubah/<?= $data['buku']['id']; ?>" method="post">
+            <input type="hidden" name="id" id="id" value="<?= $data['buku']['id']; ?>">
             <div class="form-group">
               <label for="judul">Judul</label>
               <input type="text" class="form-control" id="judul" name="judul" autocomplete="off" required>
